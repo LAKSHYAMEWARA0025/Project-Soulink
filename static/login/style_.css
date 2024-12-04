@@ -1,0 +1,199 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 65%;
+    aspect-ratio: 1.833;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+
+    background: url("/static/images/login page/background_abstract.png") no-repeat center center/cover;
+    box-shadow: 0 0 20px black,
+                0 0 20px black;
+    border-radius: 16px;
+    
+    transition: background-image 1.2s;
+}
+
+.form {
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrap_input {
+    width: 90%;
+    height: 45%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    height: 35%;
+
+    transition: transform 1.2s, opacity 1.3s;
+}
+
+.input.username {
+    transform: translateY(40%);
+}
+
+.input.mail {
+    opacity: 0;
+    transform: translateX(50%);
+}
+
+.input.password {
+    transform: translateY(-40%);
+}
+
+.wrap_field {
+    height: 75%;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrap_field input {
+    width: 100%;
+    height: 65%;
+
+    padding: 0 8px 0 8px;
+    background-color: #e7e7e7;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .4),
+                -3px -3px 2px rgba(255, 255, 255, 1);
+
+    border: none;
+    border-radius: 16px;
+    outline: none;
+}
+
+.wrap_field input:focus {
+    background-color: #e7e7e7;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .4),
+                -3px -3px 2px rgba(255, 255, 255, 1),
+                inset 2px 2px 5px rgba(0, 0, 0, .4),
+                inset -3px -3px 2px rgba(255, 255, 255, 1);
+}
+
+.wrap_field input:focus ~ .icons {
+    filter: brightness(0.2);
+}
+
+.icons {
+    width: 1.5vw;
+    height: 1.5vw;
+
+    position: absolute;
+    right: 2.5%;
+
+    filter: brightness(0.5);
+    transition: filter 0.8s;
+}
+
+.icons:nth-last-child(1) {
+    cursor: pointer;
+}
+
+.wrap_btn_anchor {
+    width: 75%;
+    height: 18%;
+    margin-top: 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+.btn {
+    width: 80%;
+    height: 40%;
+
+    border: none;
+    border-radius: 18px;
+
+    background-color: #e7e7e7;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .4),
+                -3px -3px 2px rgba(255, 255, 255, 1);
+}
+
+.btn:active {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .4),
+                -3px -3px 2px rgba(255, 255, 255, 1),
+                inset 2px 2px 5px rgba(0, 0, 0, .4),
+                inset -3px -3px 2px rgba(255, 255, 255, 1);
+}
+
+.anchor {
+    padding: 0 2% 0 2%;
+    transition: opacity 0.8s;
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        margin-right: 2%;
+        background-image: url("/static/images/login page/android_background.png");
+    }
+
+    .form {
+        width: 100%;
+        height: 80%;
+    }
+
+    .wrap_input {
+        width: 85%;
+    }
+
+    .icons {
+        width: 6vw;
+        height: 6vw;
+    }
+
+    .wrap_field input {
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .4),
+                -1px -1px 1px rgba(255, 255, 255, 1);
+    }
+
+    .wrap_field input:focus {
+        background-color: #e7e7e7;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .4),
+                    -2px -2px 2px rgba(255, 255, 255, 1),
+                    inset 2px 2px 5px rgba(0, 0, 0, .4),
+                    inset -3px -3px 2px rgba(255, 255, 255, 1);
+    }
+
+    .btn {
+        height: 30%;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .4),
+                -1px -1px 1px rgba(255, 255, 255, 1);
+    }
+
+}

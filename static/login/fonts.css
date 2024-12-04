@@ -1,0 +1,42 @@
+@font-face {
+    font-family: font1;
+    src: url(/static/custom_fonts/Conthrax-SemiBold.otf);
+}
+
+.heading {
+    font-family: font1;
+    letter-spacing: 8px;
+    font-size: 150%;
+    text-shadow: 2px 3px 5px black;
+    padding-left: 3%;
+}
+
+.input_fields p {
+    margin-left: 3%;
+    font-weight: lighter;
+    font-size: 80%;
+    letter-spacing: 4px;
+}
+
+.submit {
+    letter-spacing: 4px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    transition: letter-spacing 0.8s;
+}
+
+.submit:hover {
+    color: rgba(0, 0, 0, 0.8);
+    letter-spacing: 8px;
+}
+
+.tags {
+    font-weight: lighter;
+    font-size: 80%;
+}
+
+.tags a {
+    font-size: 85%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #000dff;
+}

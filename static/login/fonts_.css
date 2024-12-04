@@ -1,0 +1,94 @@
+@font-face {
+    font-family: myFont;
+    src: url(/static/custom_fonts/Conthrax-SemiBold.otf);
+}
+
+.form > h1{
+    font: 2vw myFont;
+    letter-spacing: .5vw;
+    margin: 10% 0 10% 5%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s, letter-spacing 0.8s;
+}
+
+/* .form > h1:hover {
+    transform: rotateY(180deg);
+} */
+
+.input label {
+    font: 1vw lighter;
+    margin-left: 3%;
+}
+
+.errors {
+    display: none;
+    color: red;
+    font-size: 1vw;
+    margin-right: 3%;
+    
+    text-align: end;
+}
+
+.anchor span {
+    font-size: 1vw;
+}
+
+.anchor a {
+    font-size: 1vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #000dff;
+}
+
+.btn {
+    font: 1.1vw bold, Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: .3vw;
+    color: rgba(0, 0, 0, 0.8);
+    transition: letter-spacing 0.8s, color 0.8s;
+}
+
+.btn:hover {
+    letter-spacing: .7vw;
+}
+
+.display_errorMsg {
+    margin: 0;
+    font-size: 1.1vw;
+    margin-top: 4%;
+}
+
+@media (max-width: 560px) {
+    .form > h1{
+        font-size: 8vw;
+        letter-spacing: 2.5vw;
+        color: whitesmoke;
+    }
+
+    .input label {
+        color: whitesmoke;
+        font-size: 3vw;
+    }
+
+    .errors {
+        font-size: 3vw;
+    }
+
+    .btn {
+        font-size: 4vw;
+        letter-spacing: 1.2vw;
+    }
+
+    .btn:hover {
+        letter-spacing: 2.5vw;
+    }
+
+    .anchor span {
+        font-size: 3vw;
+    }
+
+    .anchor a {
+        text-decoration: none;
+        font-size: 3.5vw;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #000dff;
+    }
+}
