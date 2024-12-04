@@ -1,6 +1,9 @@
-google-generativeai
-mtranslate
-django
 gunicorn
+google-generativeai
+pygame
 edge-tts
+requests
 colorama
+django
+dotenv
+mtranslate
