@@ -1,0 +1,76 @@
+Indian:
+
+Male -> gu-IN-NiranjanNeural
+        hi-IN-MadhurNeural
+        kn-IN-GaganNeural
+        ml-IN-MidhunNeural
+        ta-IN-ValluvarNeural
+        te-IN-MohanNeural
+        ur-IN-SalmanNeural
+        en-IN-PrabhatNeural
+
+
+        ta-MY-SuryaNeural
+
+
+
+
+Female -> gu-IN-DhwaniNeural
+          hi-IN-SwaraNeural
+          kn-IN-SapnaNeural
+          ml-IN-SobhanaNeural
+          ta-IN-PallaviNeural
+          te-IN-ShrutiNeural
+          ur-IN-GulNeural
+          en-IN-NeerjaNeural
+
+          ta-MY-KaniNeural
+
+
+US:
+
+Male -> es-US-AlonsoNeural
+        en-US-ChristopherNeural
+        en-US-EricNeural
+        en-US-GuyNeural
+        en-US-RogerNeural
+        en-US-SteffanNeural
+
+
+        en-AU-WilliamNeural
+        en-CA-LiamNeural
+        en-HK-SamNeural
+        en-IE-ConnorNeural
+        en-KE-ChilembaNeural
+        en-NZ-MitchellNeural
+        en-NG-AbeoNeural
+        en-PH-JamesNeural
+        en-SG-WayneNeural
+        en-ZA-LukeNeural
+        en-GB-ThomasNeural
+
+
+
+Female -> en-US-AnaNeural    cute
+        en-GB-LibbyNeural ascent
+        en-GB-MaisieNeural ascent
+          es-US-LauraNeural
+          es-US-SofiaNeural
+          es-US-PalomaNeural
+          en-US-AriaNeural
+          en-US-AnaNeural
+          en-US-JennyNeural
+
+
+
+          en-AU-NatashaNeural
+          en-CA-ClaraNeural
+          en-HK-YanNeural
+          en-IE-EmilyNeural
+          en-KE-AsiliaNeural
+          en-NZ-MollyNeural
+          en-NG-EzinneNeural
+          en-PH-RosaNeural
+          en-SG-LunaNeural
+          en-ZA-LeahNeural
+          en-GB-SoniaNeural
