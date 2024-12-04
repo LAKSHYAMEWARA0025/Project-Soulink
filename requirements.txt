@@ -7,3 +7,4 @@ colorama==0.4.6
 django==5.1.2
 python-dotenv==1.0.0
 mtranslate==1.8
+whitenoise
