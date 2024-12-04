@@ -1,0 +1,69 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: linear-gradient(to top right, #49C5F6, #FF2AEF);
+}
+
+.container {
+    width: 80%;
+    aspect-ratio: 2.1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border: 2px solid black;
+    border-radius: 18px;
+}
+
+.head {
+    width: 100%;
+    height: 10%;
+}
+
+.chatBox {
+    width: 90%;
+    height: 55%;
+
+    border: 2px solid red;
+}
+
+.input {
+    width: 85%;
+    height: 15%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.inputbox {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.inputbox textarea {
+    width: 80%;
+    height: 40%;
+}
+
+.inputbox img {
+    border: 2px solid black;
+}
+
+.btn {
+    width: 40%;
+    height: 7%;
+}

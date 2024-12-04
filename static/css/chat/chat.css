@@ -1,0 +1,212 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* --background-color: #151515; */
+    --background-color: transparent;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #272727;
+    background-image: linear-gradient(to top right, #49C5F6, #FF2AEF);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main{
+    width: 75%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: var(--background-color);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 2px solid rgb(63, 63, 63);
+    box-shadow: 0 0 20px black,
+                0 0 20px black;
+}
+
+.container{
+    margin: 10px;
+}
+
+.container.head{
+    width: 95%;
+    height: 6%;
+
+    inset: 0 0 0 0;
+    margin: 1.5% 0 0 0;
+    display: flex;
+}
+
+.container.head img:nth-child(1) {
+    width: 5%;
+    aspect-ratio: 1.5/1;
+}
+
+.container.head img:nth-child(2) {
+    width: 3.5%;
+    aspect-ratio: 1/1;
+
+    margin-left: 3%;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.profileName {
+    margin-left: 2%;
+}
+
+.container.ai{
+    width: 95%;
+    height: 48%;
+    display: flex;
+    padding: 0 15px 0 15px;
+    margin-top: 20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-color: #3d3d3d transparent;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    /* background-color: #202020; */
+    background-color: transparent;
+    border: 1px solid #ff0099;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.responseBox{
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.responseBox.User{
+    max-width: 70%;
+}
+
+.responseBox.Aarna{
+    flex-direction: row-reverse;
+    justify-content: end;
+}
+
+
+.chatLabel{
+    max-width: 70%;
+    padding: 1.5% 1.5%;
+    border-radius: 20px;
+    word-wrap: break-word;
+    background-color: #3d3d3d;
+    margin: 2%;
+}
+
+.chatLabel.anime{
+    animation: pop 0.5s forwards;
+}
+
+.userIcon{
+    width: 30px;
+    height: 30px;
+}
+
+.aarnaIcon{
+    width: 30px;
+    height: 30px;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.input {
+    width: 100%;
+    padding: 0 3% 0 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.inputbox{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    /* margin-top: 6%; */
+}
+
+.inputbox img{
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#text{
+    width: 100%;
+    border-radius: 16px;
+    padding: 1%;
+    padding-right: 40px;
+    /* background-color: rgb(53, 53, 53); */
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px black;
+    text-shadow: rgb(0, 0, 0) 0 0 30px;
+    outline: none;
+    resize: none;
+    overflow-y: auto;
+    scrollbar-color: #3d3d3d transparent;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+
+#text:focus{
+    border: 1.5px  solid #ff2600;
+}
+
+#mic {
+    width: 30px;
+    height: 30px;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+
+#submit{
+    width: 70%;
+    height: 8%;
+    background: transparent;
+    border-radius: 18px;
+    border: 2px solid transparent;
+    text-shadow: rgb(0, 0, 0) 0 0 10px;
+    transition: all 0.8s;
+    margin-top: 3%;
+}
+#submit:hover{
+    /* box-shadow: 0 0 10px whitesmoke,
+                0 0 10px whitesmoke; */
+    border-color: rgba(255, 255, 255, 0.6);
+    color: whitesmoke;
+    text-shadow: rgb(0, 0, 0) 0 0 10px;
+    letter-spacing: 2px;
+}
+#submit:active{
+    transform: scale(0.95);
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.9);
+    }
+    60% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
