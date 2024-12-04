@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Speech Transcription</title>
+
+    <style>
+        /* #end {
+            display: none;
+        } */
+        /* #clear {
+            display: none;
+        } */
+        #output {
+            border: 1px dotted black;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <button class="btn" id="start" name="startBtn" onclick="startTranscription()">Start Transcription</button>
+    <button class="btn" id="end" name="endBtn" onclick="stopTranscription()">Stop Transcription</button>
+    <button class="btn" id="clear" name="clearBtn" onclick="clearTranscript()">Clear Output</button>
+    <p id = "output"></p>
+
+    <script src="../static/js/listener.js"></script>
+
+</body>
+</html>

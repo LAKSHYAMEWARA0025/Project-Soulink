@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo Chatbot</title>
+
+    <!-- Attach CSS Files -->
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="{%  static 'css/style.css' %}?v={{ timestamp }}"/>
+    <link rel="stylesheet" href="{%  static 'css/fonts.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static/css/fonts.css">
+
+  </head>
+  <body>
+    <section class="main">
+      <div class="container head">
+        <h1>Welcome to Our Chat Bot !</h1>
+      </div>
+      <div class="container ai">
+        <div class="chat">
+          <p></p>
+        </div>
+        <div class="botgif">
+          <!-- <img src="../static/images/hi-robot.gif" alt="robo.gif" /> -->
+          <img src="{% static 'images/hi-robot.gif' %}" alt="robo.gif">
+        </div>
+      </div>
+      <div class="container chatbox">
+        <p>Type your text...</p>
+        <div class="inputbox">
+          <textarea rows="1" cols="75" , id="text"></textarea>
+          <img src="../static/images/close.png" alt="close.png" id="clear">
+        </div>        
+      </div>
+      <button id="submit" onclick="sendQuerry()">ASK</button>
+      {% csrf_token %}
+    </section>
+  </body>
+  <script>
+    const textarea = document.getElementById("text");
+    const ai_response = document.querySelector(".chat");
+    const botgif = document.querySelector(".botgif");
+    const clear = document.getElementById("clear");
+
+    let triggered = false;
+    let user_querry = "";
+
+    let scroll_height = textarea.scrollHeight;
+
+    textarea.addEventListener("input", function () {
+      if (this.scrollHeight > scroll_height && +this.getAttribute("rows") < 4) {
+        this.setAttribute("rows", `${+this.getAttribute("rows") + 1}`);
+        scroll_height = this.scrollHeight;
+      }
+
+      else if(this.value === ""){
+        this.setAttribute("rows", "1");
+        scroll_height = this.scrollHeight;
+      }
+      
+    });
+
+    let sendQuerry = function () {
+      if (textarea.value != "") {
+        ai_response.querySelector("p").innerHTML = "processing...";
+        user_querry = user_querry.trim();
+
+        if (!triggered) {
+          if (user_querry === textarea.value) {
+            return;
+          }
+
+          user_querry = textarea.value;
+          botgif.style.paddingRight = "0";
+
+          setTimeout(() => {
+            ai_response.style.opacity = "1";
+            ai_response.style.backgroundColor = "#272727";
+          }, 800);
+        }
+
+        const data = {
+          user_prompt: user_querry,
+        };
+        let status_code = 0;
+
+        // Send Data to server
+        fetch("bot-api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]")
+              .value,
+          },
+          body: JSON.stringify(data),
+        })
+          // Recieve Data from server
+          .then((response) => {
+            status_code = response.status;
+            console.log(response.status);
+            return response.json();
+          })
+          .then((data) => {
+            console.log("Success:", data.message);
+
+            if (status_code !== 404) {
+              ai_response.querySelector("p").innerHTML = data.bot_reply;
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    };
+
+    window.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendQuerry();
+      }
+    })
+
+    clear.addEventListener("click", function () {
+      textarea.value = "";
+      textarea.setAttribute("rows", "1");
+      scroll_height = textarea.scrollHeight;
+    });
+    
+  </script>
+</html>
