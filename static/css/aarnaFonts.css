@@ -1,0 +1,40 @@
+@font-face {
+    font-family: font1;
+    src: url(../custom_fonts/SupremeSpike-KVO8D.otf);
+}
+
+@font-face {
+    font-family: font2;
+    src: url(../custom_fonts/CombackHomeRegular-jEMd9.ttf);
+}
+
+@font-face{
+    font-family: font3;
+    src: url(../custom_fonts/Butler_Medium_Stencil.otf);
+}
+
+.main{
+    color: whitesmoke;
+}
+
+.container.head{
+    font-family: font2;
+    text-shadow: 0 0 10px rgb(145, 145, 145);
+    font-size: 1.5rem;
+    word-spacing: 20px;
+    letter-spacing: 4px;
+}
+
+.chatLabel{
+    word-spacing: 5px;
+    font-size: 1rem;
+}
+
+#text{
+    color: whitesmoke;
+    font-size: 1.1rem;
+}
+
+#submit{
+    color: rgba(255, 255, 255, 0.6);
+}
