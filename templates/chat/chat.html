@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aarna</title>
+
+    <!-- Attach CSS Files -->      
+    <link rel="stylesheet" href="/static/css/chat/chat.css" />
+    <link rel="stylesheet" href="/static/css/chat/chatFont.css">
+
+  </head>
+  <body>
+    <section class="main">
+      <div class="container head">
+        <img src="/static/images/back.png" alt="back">
+        <img src="/static/images/aarna2_crop.jpeg" alt="dp">
+
+        <div class="profileName">
+            <span>aarna_sharma008</span>
+            <p>Online</p>
+        </div>
+        
+      </div>
+      <div class="container ai">
+      </div>
+      
+      <div class="input">
+        <div class="inputbox">
+          <textarea rows="1" cols="75" , id="text"></textarea>
+          <img src="/static/images/close.png" alt="close.png" id="clear">
+          <!-- <img src="{% static 'images/close.png' %}" alt="close.png" id="clear"> -->
+        </div>
+        <img src="/static/images/mic.png" alt="mic.png" id="mic">     
+      </div>       
+      
+
+      <button id="submit" onclick="sendQuerry()">ASK</button>
+      {% csrf_token %}
+    </section>
+  </body>
+  <script>
+    const textarea = document.getElementById("text");
+    const clear = document.getElementById("clear");
+    const chatbox = document.querySelector(".container.ai");
+    // const audio = new Audio("{% static 'audio/pop notification2.mp3' %}");
+    const audio = new Audio('../static/audios/pop notification2.mp3');
+    let transcriptOn = false;
+
+    let user_querry = "";
+    let scroll_height = textarea.scrollHeight;
+
+    textarea.addEventListener("input", function () {
+      if (this.scrollHeight > scroll_height && +this.getAttribute("rows") < 4) {
+        this.setAttribute("rows", `${+this.getAttribute("rows") + 1}`);
+        scroll_height = this.scrollHeight;
+      }
+
+      else if(this.value === ""){
+        this.setAttribute("rows", "1");
+        scroll_height = this.scrollHeight;
+      }
+      
+    });
+
+
+    let notify = function () {
+      // Create a new AudioContext
+      const audioContext = new AudioContext();
+
+      // Create a new AudioBufferSourceNode
+      const source = audioContext.createBufferSource();
+
+      // Load the audio file
+      fetch('../static/audios/pop notification2.mp3')
+        .then(response => response.arrayBuffer())
+        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+        .then(audioBuffer => {
+          // Set the audio buffer
+          source.buffer = audioBuffer;
+
+          // Connect the source to the destination
+          source.connect(audioContext.destination);
+
+          // Start playing the audio
+          source.start();
+        });
+      }
+
+    let sendQuerry = function () {
+      if (textarea.value != "") {
+
+        if (textarea.value.trim() === user_querry) {
+          return;
+        }
+        
+        user_querry = textarea.value.trim();
+
+        
+        chatbox.innerHTML = chatbox.innerHTML + `<div class = "responseBox User">
+                                  <img src="/static/images/user.png" alt="user.png" class = "userIcon">
+                                  <div class = "chatLabel">
+                                      ${user_querry}
+                                  </div>
+                                </div>`;
+
+        let responseBox = document.querySelectorAll(".responseBox");
+        responseBox = responseBox[responseBox.length - 1];
+        responseBox.scrollIntoView({ behavior: "smooth" });
+
+        let labels = document.querySelectorAll(".chatLabel");
+        try{
+          labels[labels.length - 2].classList.remove("anime");
+        }
+        catch{}
+        labels[labels.length - 1].classList.add("anime");
+
+        setTimeout(() => {
+          // let labels = document.querySelectorAll(".chatLabel");
+          // labels[labels.length - 1].classList.remove("anime");
+
+          chatbox.innerHTML += `<div class = "responseBox Aarna">
+                                    <img src="/static/images/aarna2_crop.jpeg" alt="aarna.png" class = "aarnaIcon">
+                                    <div class = "chatLabel">
+                                        typing...
+                                    </div>
+                                </div>`;
+          // responseBox.querySelector(".chatLabel").innerHTML = "Hi, I'm Aarna. How can I help you?";
+          let responseBox = document.querySelectorAll(".responseBox");
+          responseBox = responseBox[responseBox.length - 1];
+          responseBox.scrollIntoView({ behavior: "smooth" });
+
+          let labels = document.querySelectorAll(".chatLabel");
+          labels[labels.length - 2].classList.remove("anime");
+          labels[labels.length - 1].classList.add("anime");
+
+        }, 3000)
+
+        setTimeout(() => {
+          notify();
+          let responseBox = document.querySelectorAll(".responseBox");
+          responseBox = responseBox[responseBox.length - 1];
+          responseBox.querySelector(".chatLabel").innerHTML = "Hi sweetu, I'm Aarna. How can I help you?";
+        }, 6000);
+
+        const data = {
+          user_prompt: user_querry,
+        };
+        let status_code = 0;
+
+        // // Send Data to server
+        // fetch("bot-api", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]")
+        //       .value,
+        //   },
+        //   body: JSON.stringify(data),
+        // })
+        //   // Recieve Data from server
+        //   .then((response) => {
+        //     status_code = response.status;
+        //     console.log(response.status);
+        //     return response.json();
+        //   })
+        //   .then((data) => {
+        //     console.log("Success:", data.message);
+        //     if (status_code !== 404) {
+        //       responseBox.querySelector(".chatLabel").innerHTML = data.bot_reply;
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     console.error("Error:", error);
+        //   });
+      }
+    };
+
+    window.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendQuerry();
+      }
+    })
+
+    clear.addEventListener("click", function () {
+      textarea.value = "";
+      textarea.setAttribute("rows", "1");
+      scroll_height = textarea.scrollHeight;
+    });
+    
+    document.getElementById("mic").addEventListener("click", function () {
+      if (!transcriptOn) {
+        startTranscription();
+        transcriptOn = true;
+      }
+      else {
+        stopTranscription();
+        transcriptOn = false;
+      }
+    })
+
+    document.querySelector(".container.head > img").addEventListener("click", function () {
+        console.log("clicked");
+    });
+
+  </script>
+  <script src="/static/js/listener.js"></script>
+</html>

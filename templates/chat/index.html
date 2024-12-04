@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarna Bot</title>
+
+    <!-- Attach CSS Files -->
+    <!-- {% load static %} -->
+    <!-- <link rel="stylesheet" href="{%  static 'css/aarnaStyle.css' %}?v={{ timestamp }}">
+    <link rel="stylesheet" href="{%  static 'css/aarnaFonts.css' %}?v={{ timestamp }}"> -->
+
+    <link rel="stylesheet" href="/static/css/chat/chat.css" />
+    <link rel="stylesheet" href="/static/css/chat/chatFont.css">
+
+
+</head>
+<body>
+
+    <section class="main">
+        <div class="container head">
+            <img src="/static/images/back.png" alt="back">
+            <img src="/static/images/aarna2_crop.jpeg" alt="dp">
+
+            <div class="profileName">
+                <span>aarna_sharma008</span>
+                <p>Online</p>
+            </div>
+        </div>
+        <div class="container ai"></div>
+        <div class="input">
+            <div class="inputbox">
+                <textarea rows="1" cols="75" , id="text"></textarea>
+                <img src="{% static 'images/close.png' %}" alt="close.png" id="clear">
+            </div>
+            <img src="{% static 'images/mic.png' %}" alt="mic.png" id="mic">
+        </div>
+        <button id="submit" onclick="sendRequest()">ASK</button>
+        {% csrf_token %}
+    </section>
+    
+</body>
+
+<script src="{% static 'js/aarna.js' %}?v={{ timestamp }}"></script>
+<script src="{% static 'js/listener.js' %}?v={{ timestamp }}"></script>
+
+<script src="/static/js/chat/aarna.js"></script>
+<script src="/static/js/chat/listener.js"></script>
+
+</html>
