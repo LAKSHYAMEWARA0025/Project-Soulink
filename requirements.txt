@@ -2,3 +2,4 @@ google-generativeai
 mtranslate
 django
 gunicorn
+edge-tts
