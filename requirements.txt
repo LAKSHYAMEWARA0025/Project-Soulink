@@ -5,5 +5,5 @@ edge-tts
 requests
 colorama
 django
-dotenv
+dotenv==0.0.5
 mtranslate
