@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <!-- Attach CSS Files -->
+    <link rel="stylesheet" href="/static/css/login/style_.css" />
+    <link rel="stylesheet" href="/static/css/login/fonts_.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="#" class="form">
+        <h1>LOGIN</h1>
+        <div class="wrap_input">
+          <div class="input username">
+            <label for="username">Username</label>
+            <div class="wrap_field">
+              <input
+                type="text"
+                name="username"
+                title="Username must be atleast 3 characters long and can include only letters, numbers and _"
+                placeholder=""
+                value="{{username}}"
+              />
+              <img
+                src="/static/images/login page/user.png"
+                alt="user"
+                class="icons"
+              />
+            </div>
+            <span class="errors"></span>
+          </div>
+          <div class="input mail">
+            <label for="mail">Mail</label>
+            <div class="wrap_field">
+              <input
+              type="email"
+              name="mail"
+              title="Mail must contain @"
+              placeholder=""
+              value="{{mail}}"    
+              />
+              <img
+                src="/static/images/login page/mail.png"
+                alt="mail"
+                class="icons"
+              />
+            </div>
+            <span class="errors"></span>
+          </div>
+          <div class="input password">
+            <label for="password">Password</label>
+            <div class="wrap_field">
+              <input
+                type="password"
+                name="password"
+                title="Password must be atleast 8 characters long and can include only letters, numbers, @ and _"
+                placeholder=""
+                value="{{password}}"
+              />
+              <img
+                src="/static/images/login page/hide.png"
+                alt="hide"
+                class="icons psswrd"
+                data-visibility="hidden"
+              />
+            </div>
+            <span class="errors"></span>
+          </div>
+        </div>
+
+        <!-- {% if invalid %}
+        <p style="color: red" class="display_errorMsg">{{invalid}}</p>
+        {% endif %} -->
+
+        <div class="wrap_btn_anchor">
+          <button class="btn">LOGIN</button>
+          <div class="anchor">
+            <span>Don't have an account yet ?</span>
+            <a href="#" data-formType="login">SIGN UP</a>
+          </div>
+        </div>
+      </form>
+      {% csrf_token %}
+    </div>
+
+    <script src="/static/js/login/script_.js"></script>
+  </body>
+</html>
